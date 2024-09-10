@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 1" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="RUBAH SRI" />
+
+    <title>Task 1.1 HTML and CSS Demo Page</title>
+    <!--Insert description of exercise  -->
+
+    <style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: bisque;
+            font-family: sans-serif;
+        }
+        
+        h1 {
+            color: darkolivegreen;
+            background-color: burlywood;
+        }
+        .nav1 .nav{
+            background-color: #00A090;
+            border: none;
+            border-radius: 0px;
+            height: 100%;
+        }
+        
+        .nav1 a {
+            color: white;
+        }
+
+        .nav1 a:hover {
+            background-color: #000000;
+            height: 100%;
+/*            padding: 1em 0.7em;*/
+        }
+
+        .nav-pills .nav-link.active{
+            color: #fff;
+            height: 100%;
+            background-color: #000000;
+        }
+        
+        @media (max-width: 767.98px) {
+            ul.nav-pills li a{
+                display: list-item;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar nav1">
+        <div class="navbar">
+            <ul class="nav nav-pills nav-justified" style="height: 100%">
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#CB">COMPANY BACKGROUND</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#CI">CORPORATE INFORMATION</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#CS">CORPORATE STRUCTURE</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#PVC">PRESTAR CORPORATE VIDEO</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#BCC">BOARD CHARTER AND COMMITTEES</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#WBP">WHISTLE BLOWING POLICY</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#ABACP">ANTI BRIBERY AND ANTI-CORRUPTION POLICY</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#PSG">OTHER POLICY STATEMENTS AND GUIDELINES</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tab-content">
+
+        <!--            CB Tab-->
+        <div id="CB" class="tab-pane fade">
+            <h3>COMPANY BACKGROUND</h3>
+            <p>AAAAAAAAAAAAA</p>
+        </div>
+
+        <!--            CI Tab-->
+        <div id="CI" class="tab-pane fade">
+            <h3>CORPORATE INFORMATION</h3>
+            <p>BBBBBBBBBBBBB</p>
+        </div>
+
+        <!--            CS Tab-->
+        <div id="CS" class="tab-pane fade">
+            <h3>CORPORATE STRUCTURE</h3>
+            <p>CCCCCCCCCCCCC</p>
+        </div>
+
+        <!--            PVC Tab-->
+        <div id="PVC" class="tab-pane fade">
+            <h3>PRESTAR CORPORATE VIDEO</h3>
+            <p>DDDDDDDDDDDDD</p>
+        </div>
+
+        <!--            BCC Tab-->
+        <div id="BCC" class="tab-pane fade">
+            <h3>BOARD CHARTER AND COMMITTEES</h3>
+            <p>EEEEEEEEEEEEE</p>
+        </div>
+
+        <!--            WBP Tab-->
+        <div id="WBP" class="tab-pane fade">
+            <h3>WHISTLE BLOWING POLICY</h3>
+            <p>FFFFFFFFFFFFF</p>
+        </div>
+
+        <!--            ABACP Tab-->
+        <div id="ABACP" class="tab-pane fade">
+            <h3>ANTI BRIBERY AND ANTI-CORRUPTION POLICY</h3>
+            <p>GGGGGGGGGGGGG</p>
+        </div>
+
+        <!--            PSG Tab-->
+        <div id="PSG" class="tab-pane">
+            <h3>OTHER POLICY STATEMENTS AND GUIDELINES</h3>
+            <p>HHHHHHHHHHHHH</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

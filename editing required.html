@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart with D3.js</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: bisque;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: darkolivegreen;
+            background-color: burlywood;
+        }
+        p {
+            color: green;
+        }
+
+        a:link,
+        a:visited {
+            background-color: burlywood;
+            color: darkolivegreen;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover,
+        a:active {
+            background-color: chocolate;
+        }
+        footer {color: burlywood;}
+        
+        .bar {
+            fill: rgb(255, 176, 118);
+            transition: fill 1s;
+        }
+        .bar:hover {
+            fill: #a05016;
+        }
+        .label {
+            fill: #333;
+            font-size: 14px;
+            font-weight: bold;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="index.html" class="button">Homepage</a>
+        <a href="lab2.1.html" class="button">Lab2.1</a>
+        <a href="lab2.2.html" class="button">Lab2.2</a>
+        <a href="lab2.3.html" class="button">Lab2.3</a>
+        <a href="lab2.4.html" class="button">Lab2.4</a>
+    </div>
+    <h1>Drawing with Data</h1>
+    <svg width="600" height="400"></svg>
+
+    <footer>COS30045 Data Visualisation<br>Ruby</footer>
+
+    <script src="2.4script.js"></script>
+</body>
+</html>

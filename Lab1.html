@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Your name here"/>
+
+	<title>Task 1.1 HTML and CSS Demo Page</title>
+	<!--Insert description of exercise  -->
+
+	<style>
+		h1{color:aquamarine}
+		p{color:mediumaquamarine}
+		
+        #image-container {
+            margin-top: 20px;
+        }
+
+        button, {
+			background-color: aliceblue;
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 600px;
+            height: auto;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+	</style>
+
+</head>
+
+<body>
+
+	<h1>Pets and the Pandemic</h1>
+	<h2>Author of Interesting Article</h2>
+
+	<table style="width:800px">
+		<tr>
+			<td><img src="cat.jpg" width="50%" height="50%" /></td>
+			<td><img src="dog.png" width="50%" height="50%" /></td>
+			<td><img src="fish.jpg" width="50%" height="50%" /></td>
+		</tr>
+	</table>
+	<p>
+		<div>
+			A report from <b>Animal Medicines Australia (AMA)</b> has found that many Australians took the opportunity to introduce a pet into their household during the pandemic.
+			Their survey indicated that there was a <i>significant increase</i> in the percent of households taking in a new dog, fish or bird.
+			Their research also indicated that pets had a number of <i>positive influences</i> on their lives such as:
+
+			<ul>
+				<li>companionship</li>
+				<li>better mental health</li>
+				<li>joy and happiness.</li>
+			</ul>
+
+			With the increase in pet ownership the AMA are encouraging policy makers to consider the needs of companion animals and their owners when considering rental, strata and body corporate regulations are well as accepting animals in public places and transport.
+		
+			</div>
+		<br />
+		<button class="button1" onclick="switchImage('int2019.png','Fig1. Percent of most popular pet owned by Australians in 2019','int2019')">2019</button>
+		<button class="button2" onclick="switchImage('int2021.png','Fig2. Percent of most popular pet owned by Australians in 2021','int2021')">2021</button>
+		<button class="button3" onclick="switchImage('intboth.png','Fig3. Percent of most popular pet owned by Australians in 2019 and 2021','intboth')">Both</button>
+		<div>
+
+			<div id="image-container">
+				<img id="displayed-image" src="int2019.png" alt="Description of Image 1">
+				<div class="caption" id="image-caption">Fig 1.Percent of most popular pet owned by australians in 2019.</div>
+			</div>
+
+			<script>
+				const images = [
+					{ src: 'int2019.png', alt: 'Description of Image 1', caption: 'Fig 1.Percent of most popular pet owned by australians in 2019.' },
+					{ src: 'int2021.png', alt: 'Description of Image 2', caption: 'Fig 2.Percent of most popular pet owned by australians in 2021.' },
+					{ src: 'int20192021.png', alt: 'Description of Image 3', caption: 'Fig 3.Percent of most popular pet owned by australians in 2019 and 2021.' }
+				];
+
+				function switchImage(index) {
+					const image = images[index - 1];
+					document.getElementById('displayed-image').src = image.src;
+					document.getElementById('displayed-image').alt = image.alt;
+					document.getElementById('image-caption').textContent = image.caption;
+				}
+			</script>
+
+			<br />
+			<a href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2021/08/AMAU005-PATP-Report21_v1.41_WEB.pdf">Pets and the Pandemic</a>
+		</div>
+	</p>
+	
+
+	<footer>COS30045 Data Visualisation(Rubah Sri)</footer>
+
+</body>
+</html>

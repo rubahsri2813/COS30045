@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 1" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="RUBAH SRI" />
+    <meta charset="UTF-8" />
+
+    <title>Task 1.1 HTML and CSS Demo Page</title>
+    <!--Insert description of exercise  -->
+
+    <style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: bisque;
+            font-family: sans-serif;
+        }
+        
+        h1 {
+            color: darkolivegreen;
+            background-color: burlywood;
+        }
+        svg {
+			display: block;
+			margin: 0 auto;
+			border: 2px solid #2c3e50;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+        a:link,
+        a:visited {
+            background-color: burlywood;
+            color: darkolivegreen;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover,
+        a:active {
+            background-color: chocolate;
+        }
+        
+        footer {color: burlywood;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="navbar nav1">
+        <div class="navbar">
+            <a class="nav-link active" data-toggle="pill" href="MainPage.html">Home</a>
+            
+            <a class="nav-link" data-toggle="pill" href="Lab%201.1.html">Lab 1.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.2.html">Lab 1.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.3.HTML">Lab 1.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.1.html">Lab 2.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.2.html">Lab 2.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.3.html">Lab 2.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.4.html">Lab 2.4</a>
+        </div>
+    </div>
+
+    <h1>Drawing Shapes with SVG</h1>
+
+    <!--This is the SVG part-->
+
+    <svg width="500" height="60" style="background-color: bisque">
+        <g transform="translate(20, 0)">
+            <!--The SVG contains a circle, rectangle, ellipse and a line-->
+
+            <circle cx="25" cy="30" r="25" fill="rgb(192, 79, 226)" />
+            <rect x="50" y="5" width="50" height="50" fill="rgb(71, 200, 41)" />
+            <ellipse cx="140" cy="30" rx="40" ry="25" fill="rgba(213, 184, 62, 0.5)" />
+            <line x1="0" y1="30" x2="180" y2="30" stroke="white" stroke-width="5" />
+        </g>
+    </svg>
+    <!-- End of SVG -->
+
+    <footer style="color: burlywood;"><br>COS30045 Data Visualisation<br>Ruby</footer>
+
+</body>
+
+</html>

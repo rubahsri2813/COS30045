@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 1" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="RUBAH SRI" />
+    <meta charset="UTF-8" />
+
+    <title>Task 1.2 Javascript</title>
+    <!--Insert description of exercise  -->
+
+    <style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: bisque;
+            font-family: sans-serif;
+        }
+        
+        h1 {
+            color: darkolivegreen;
+            background-color: burlywood;
+        }
+        
+        a:link,
+        a:visited {
+            background-color: burlywood;
+            color: darkolivegreen;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover,
+        a:active {
+            background-color: chocolate;
+        }
+        
+        button {
+            background-color: burlywood;
+            color: darkolivegreen;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        footer {color: burlywood;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="navbar nav1">
+        <div class="navbar">
+            <a class="nav-link active" data-toggle="pill" href="MainPage.html">Home</a>
+            
+            <a class="nav-link" data-toggle="pill" href="Lab%201.1.html">Lab 1.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.2.html">Lab 1.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.3.HTML">Lab 1.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.1.html">Lab 2.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.2.html">Lab 2.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.3.html">Lab 2.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.4.html">Lab 2.4</a>
+        </div>
+    </div>
+
+    <h1>Title of Interesting Article</h1>
+    <h3>Rubah Sri</h3>
+
+    <p>
+        A report from Animal Medicines Australia (AMA) has found that many Australians took the opportunity to introduce a pet into their household during the pandemic. Their survey indicated that there was a <b>significant increase</b> in the percent of households taking in a new dog, fish or bird. Their research also indicated that pets had a number of <i>positive influences</i> on their lives such as:<br><br><br>
+    </p>
+    
+    <ul>
+        <li>Companionship</li>
+        <li>Better mental health</li>
+        <li>Joy and happiness.</li>
+    </ul><br><br><br>
+
+    <script>
+        const images = [
+            { src: 'int2019.jpg', alt: 'Description of Image 1', caption: 'Fig 1. Percentage of most popular pets owned by Australians in 2019.' },
+            { src: 'int2021.jpg', alt: 'Description of Image 2', caption: 'Fig 2. Percentage of most popular pets owned by Australians in 2021.' },
+            { src: 'int20192021.jpg', alt: 'Description of Image 3', caption: 'Fig 3. Percentage of most popular pets owned by Australians in 2019 and 2021.' }
+        ];
+
+        function switchImage(index) {
+            const image = images[index - 1];
+            document.getElementById('displayed-image').src = image.src;
+            document.getElementById('displayed-image').alt = image.alt;
+            document.getElementById('image-caption').textContent = image.caption;
+        }
+    </script>
+    
+    <div>
+        <button onclick="switchImage(1)">2019</button>
+        <button onclick="switchImage(2)">2021</button>
+        <button onclick="switchImage(3)">Both</button>
+    </div>
+    
+    <div id="image-container">
+        <img id="displayed-image" src="int2019.jpg" alt="Description of Image 1">
+        <div class="caption" id="image-caption">Fig 1. Percentage of most popular pets owned by Australians in 2019.</div>
+    </div>
+
+
+    <p>With the increase in pet ownership the AMA are encouraging policy makers to consider the needs of companion animals and their owners when considering rental, strata and body corporate regulations are well as accepting animals in public places and transport.<br><br><br></p>
+
+    <footer><br>COS30045 Data Visualisation<br>Ruby</footer>
+
+</body>
+
+</html>

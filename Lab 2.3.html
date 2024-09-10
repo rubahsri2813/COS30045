@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 1" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="RUBAH SRI" />
+    <meta charset="UTF-8" />
+
+	<title>Task 2.3 Drawing with Data - Scatter Plot</title>
+
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+
+	<style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: bisque;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: darkolivegreen;
+            background-color: burlywood;
+        }
+        p {
+            color: green;
+        }
+
+        a:link,
+        a:visited {
+            background-color: burlywood;
+            color: darkolivegreen;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover,
+        a:active {
+            background-color: chocolate;
+        }
+        footer {color: burlywood;}
+	</style>
+
+</head>
+
+<body>
+    <div class="navbar nav1">
+        <div class="navbar">
+            <a class="nav-link active" data-toggle="pill" href="Lab%201.1.html">Home</a>
+            
+            <a class="nav-link" data-toggle="pill" href="Lab%201.1.html">Lab 1.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.2.html">Lab 1.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.3.HTML">Lab 1.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.1.html">Lab 2.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.2.html">Lab 2.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.3.html">Lab 2.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.4.html">Lab 2.4</a>
+        </div>
+    </div>
+
+	<h1>Creating and Formatting Paragraph Elements with D3 </h1>
+
+	<script>
+
+		var w = 500;
+		var h = 100;
+		var barPadding = 1;
+        <!-- dataset for scatter plot-->
+        var dataset = [
+			[5,20],
+			[480,90],
+			[250,50],
+			[100,33],
+			[330,95],
+            [410,12],
+            [475,44],
+			[25,67],
+			[85,21],
+            [220,88],
+		];
+
+		var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h);
+
+		svg.selectAll("circle")
+			.data(dataset)
+			.enter()
+			.append("circle")
+			.attr("cx", function (d, i) {
+				return d[0];
+			})
+			.attr("cy", function (d) {
+				return d[1];
+			})
+			.attr("r", function(d){
+            return Math.sqrt(d[1]);
+        })
+			.attr("fill", "brown");
+        
+        svg.selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text(function(d){
+            return d[0] + " " +d[1];
+        })
+	</script>
+
+		<footer><br>COS30045 Data Visualisation<br>Ruby</footer>
+
+
+</body>
+</html>

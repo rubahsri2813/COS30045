@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 2" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="RUBAH SRI" />
+    <meta charset="UTF-8" />
+    
+	<title>Task 2.2 Drawing with Data</title>
+
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+
+	<style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: bisque;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: darkolivegreen;
+            background-color: burlywood;
+        }
+        p {
+            color: green;
+        }
+
+        a:link,
+        a:visited {
+            background-color: burlywood;
+            color: darkolivegreen;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover,
+        a:active {
+            background-color: chocolate;
+        }
+        footer {color: burlywood;}
+	</style>
+
+</head>
+
+<body>
+    <div class="navbar nav1">
+        <div class="navbar">
+            <a class="nav-link active" data-toggle="pill" href="Lab%201.1.html">Home</a>
+            
+            <a class="nav-link" data-toggle="pill" href="Lab%201.1.html">Lab 1.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.2.html">Lab 1.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%201.3.HTML">Lab 1.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.1.html">Lab 2.1</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.2.html">Lab 2.2</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.3.html">Lab 2.3</a>
+
+            <a class="nav-link" data-toggle="pill" href="Lab%202.4.html">Lab 2.4</a>
+        </div>
+    </div>
+
+	<h1>Creating and Formatting Paragraph Elements with D3 </h1>
+
+	<script>
+
+		var w = 500;
+		var h = 100;
+		var barPadding = 1;
+<!-- dataset for Bar Graph-->
+		var dataset = [14, 5, 26, 23, 9];
+
+		var svg = d3.select("body")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
+
+		svg.selectAll("rect")
+		.data(dataset)
+		.enter()
+		.append("rect")
+		.text(function(d){
+		return d;
+		})
+		.attr("fill","black")
+		.attr("x", function(d, i){
+		return i * (w / dataset.length) + 16;
+		})
+		.attr("y", function(d){
+		return h - (d*4);
+		})
+		.attr("width",function(d){
+		return (w/dataset.length-barPadding);
+		})
+		.attr("height", function(d){
+		return d*4;
+		});
+
+		svg.selectAll("text")
+		.data(dataset)
+		.enter()
+		.append("text")
+		.text(function(d) {
+		return d;
+		})
+		.attr("x", function(d, i) {
+		return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 16;
+		})
+		.attr("y", function(d) {
+		return h - (d * 4) + 15; // Positioning text slightly below the top of the bar
+		})
+		.attr("font-size", "12px")
+		.attr("fill", "white")
+		.attr("text-anchor", "middle");
+	</script>
+
+		<footer><br>COS30045 Data Visualisation<br>Ruby</footer>
+
+</body>
+</html>
