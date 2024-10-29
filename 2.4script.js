@@ -1,50 +1,66 @@
-// Set the dimensions and margins of the graph
-var margin = {top: 20, right: 30, bottom: 40, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+function barChart(data) {
+    // Set SVG dimensions
+    var w = 500;
+    var h = 200;
+    var padding = 5;
 
-// Append the SVG object to the body of the page
-var svg = d3.select("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // Create SVG element
+    var svg = d3.select("#chart")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
 
-// Load the data from the CSV file
-d3.csv("data.csv").then(function(data) {
+    // Scaling
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) { return +d.wombats; })])
+        .range([0, h]);
 
-  // Parse the data to ensure numbers are treated as such
-  data.forEach(function(d) {
-    d.wombats = +d.wombats;
-  });
+    // Create bars
+    svg.selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", function(d, i) {
+            return i * (w / data.length);
+        })
+        .attr("y", function(d) {
+            return h - yScale(+d.wombats);
+        })
+        .attr("width", (w / data.length) - padding)
+        .attr("height", function(d) {
+            return yScale(+d.wombats);
+        })
+        .attr("fill", function(d) {
+        if (d.wombats <= 10) {
+            return "#ffb076";  //for 0 to 10
+        } else if (d.wombats <= 20) {
+            return "#e89c64";  //for 11 to 20
+        } else if (d.wombats <= 30) {
+            return "#db8c51";    //for 21 to 30
+        } else {
+            return "#d68040";   //for values > 31
+        }
+    });
 
-  // Define the scales for the x and y axes
-  var x = d3.scaleBand()
-      .range([0, width])
-      .padding(0.1)
-      .domain(data.map(function(d, i) { return i; }));
+    // Add labels
+    svg.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .text(function(d) {
+            return d.wombats;
+        })
+        .attr("x", function(d, i) {
+            return i * (w / data.length) + (w / data.length - padding) / 2;
+        })
+        .attr("y", function(d) {
+            return h - yScale(+d.wombats) - 5;
+        })
+        .attr("text-anchor", "middle")
+        .attr("fill", "black");
+}
 
-  var y = d3.scaleLinear()
-      .range([height, 0])
-      .domain([0, d3.max(data, function(d) { return d.wombats; })]);
-
-  // Append the bars to the svg
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d, i) { return x(i); })
-      .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d.wombats); })
-      .attr("height", function(d) { return height - y(d.wombats); });
-
-  // Add the data labels on top of the bars
-  svg.selectAll(".text")
-      .data(data)
-    .enter().append("text")
-      .attr("class", "label")
-      .attr("x", function(d, i) { return x(i) + x.bandwidth() / 2; })
-      .attr("y", function(d) { return y(d.wombats) - 5; })
-      .attr("dy", ".75em")
-      .text(function(d) { return d.wombats; });
+// Load CSV data and call barChart function
+d3.csv("Task%202.4%20data.csv").then(function(data) {
+    barChart(data);
 });

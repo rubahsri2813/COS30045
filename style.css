@@ -1,0 +1,80 @@
+body {
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: bisque;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: darkolivegreen;
+    background-color: burlywood;
+}
+p {
+    color: green;
+}
+
+#chart{
+    margin: 0 auto;
+    width: 80%;
+}
+svg {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0 4px 8px #00000085;
+}
+
+.bar {
+    fill: #ffb076;
+    
+}
+.bar:hover {
+    fill: #a05016;
+    transition: fill 1s;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: burlywood;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: darkolivegreen;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover , a:active{
+    background-color: chocolate;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+button {
+    background-color: burlywood;
+    color: darkolivegreen;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+footer {
+    color: burlywood;
+}

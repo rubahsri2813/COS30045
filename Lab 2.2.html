@@ -1,128 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8" />
-    <meta name="description" content="Data Visualisation Exercise 2" />
-    <meta name="keywords" content="HTML, CSS" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data Visualisation Exercise 3.1" />
+    <meta name="keywords" content="HTML, CSS, Java, d3" />
     <meta name="author" content="RUBAH SRI" />
-    <meta charset="UTF-8" />
+    <title>Task 2.2 Drawing with Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     
-	<title>Task 2.2 Drawing with Data</title>
-
-	<script src="https://d3js.org/d3.v7.min.js"></script>
-
-	<style>
-        body {
-            margin-left: 100px;
-            margin-right: 100px;
-            background-color: bisque;
-            font-family: sans-serif;
+    <style>
+        .bar {
+            fill: rgb(255, 176, 118);
+            transition: fill 1s;
         }
-
-        h1 {
-            color: darkolivegreen;
-            background-color: burlywood;
+        .bar:hover {
+            fill: #a05016;
         }
-        p {
-            color: green;
-        }
-
-        a:link,
-        a:visited {
-            background-color: burlywood;
-            color: darkolivegreen;
-            padding: 15px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        a:hover,
-        a:active {
-            background-color: chocolate;
-        }
-        footer {color: burlywood;}
-	</style>
-
+    </style>
 </head>
-
 <body>
-    <div class="navbar nav1">
-        <div class="navbar">
-            <a class="nav-link active" data-toggle="pill" href="Lab%201.1.html">Home</a>
-            
-            <a class="nav-link" data-toggle="pill" href="Lab%201.1.html">Lab 1.1</a>
-
-            <a class="nav-link" data-toggle="pill" href="Lab%201.2.html">Lab 1.2</a>
-
-            <a class="nav-link" data-toggle="pill" href="Lab%201.3.HTML">Lab 1.3</a>
-
-            <a class="nav-link" data-toggle="pill" href="Lab%202.1.html">Lab 2.1</a>
-
-            <a class="nav-link" data-toggle="pill" href="Lab%202.2.html">Lab 2.2</a>
-
-            <a class="nav-link" data-toggle="pill" href="Lab%202.3.html">Lab 2.3</a>
-
-            <a class="nav-link" data-toggle="pill" href="Lab%202.4.html">Lab 2.4</a>
-        </div>
+    <!-- Navigation bar on left -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%201.1.html">Lab 1.1</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%201.2.html">Lab 1.2</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%201.3.HTML">Lab 1.3</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%202.1.html">Lab 2.1</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%202.2.html">Lab 2.2</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%202.3.html">Lab 2.3</a>
+        <a class="nav-link" data-toggle="pill" href="Lab%202.4.html">Lab 2.4</a>
+        <a class="nav-link active" data-toggle="pill" href="Lab%203.1.html">Lab 3.1</a>
     </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    
+    <h1>Drawing with Data</h1>
 
-	<h1>Creating and Formatting Paragraph Elements with D3 </h1>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
 
-	<script>
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        // Set SVG dimensions
+        var w = 500;
+        var h = 200;
+        var padding = 5;
 
-		var w = 500;
-		var h = 100;
-		var barPadding = 1;
-<!-- dataset for Bar Graph-->
-		var dataset = [14, 5, 26, 23, 9];
+        // Sample data
+        var dataset = [14, 32, 54, 12, 22];
 
-		var svg = d3.select("body")
-		.append("svg")
-		.attr("width", w)
-		.attr("height", h);
+        // Create SVG element
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
-		svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.text(function(d){
-		return d;
-		})
-		.attr("fill","black")
-		.attr("x", function(d, i){
-		return i * (w / dataset.length) + 16;
-		})
-		.attr("y", function(d){
-		return h - (d*4);
-		})
-		.attr("width",function(d){
-		return (w/dataset.length-barPadding);
-		})
-		.attr("height", function(d){
-		return d*4;
-		});
+        // Scale the bar heights
+        var heightScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([0, h]);
 
-		svg.selectAll("text")
-		.data(dataset)
-		.enter()
-		.append("text")
-		.text(function(d) {
-		return d;
-		})
-		.attr("x", function(d, i) {
-		return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 16;
-		})
-		.attr("y", function(d) {
-		return h - (d * 4) + 15; // Positioning text slightly below the top of the bar
-		})
-		.attr("font-size", "12px")
-		.attr("fill", "white")
-		.attr("text-anchor", "middle");
-	</script>
+        // Create bars
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length);
+            })
+            .attr("y", function(d) {
+                return h - heightScale(d);
+            })
+            .attr("width", (w / dataset.length) - padding)
+            .attr("height", function(d) {
+                return heightScale(d);
+            });
 
-		<footer><br>COS30045 Data Visualisation<br>Ruby</footer>
-
+    </script>
+    <footer><br>COS30045 Data Visualisation<br>Ruby</footer>
 </body>
 </html>
